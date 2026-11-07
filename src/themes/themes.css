@@ -1,0 +1,234 @@
+/*
+ * Theme tokens. Components only use these semantic variables (through
+ * Tailwind classes like bg-card, text-primary, font-display), so a theme is
+ * just a block of variables plus optional artwork in decor.tsx.
+ *
+ * The active theme is set by <html data-theme="..."> from wishlist.config.json
+ * (or ?theme=<id> to preview).
+ *
+ * Every theme must define:
+ *   --background --foreground --card --card-foreground --popover --popover-foreground
+ *   --primary --primary-foreground --secondary --secondary-foreground
+ *   --muted --muted-foreground --accent --accent-foreground --destructive
+ *   --success --success-foreground --border --input --ring --radius
+ *   --font-body --font-heading --heading-weight --heading-tracking
+ *   --card-shadow --page-bg
+ */
+
+:root {
+  --destructive: oklch(0.577 0.245 27.325);
+  --heading-weight: 700;
+  --heading-tracking: -0.01em;
+  --heading-transform: none;
+  --text-glow: none;
+}
+
+/* ---------------------------------------------------------------------------
+ * playful: the fox. Autumn orange, cream, forest green, chunky shapes.
+ * ------------------------------------------------------------------------ */
+[data-theme="playful"] {
+  --background: #fff6ec;
+  --foreground: #3b2416;
+  --card: #ffffff;
+  --card-foreground: #3b2416;
+  --popover: #ffffff;
+  --popover-foreground: #3b2416;
+  --primary: #e8692a;
+  --primary-foreground: #ffffff;
+  --secondary: #ffe4cc;
+  --secondary-foreground: #6b3514;
+  --muted: #f8eadc;
+  --muted-foreground: #85634c;
+  --accent: #2f6b4f;
+  --accent-foreground: #ffffff;
+  --success: #2f6b4f;
+  --success-foreground: #ffffff;
+  --border: #f1d3b8;
+  --input: #ecc8a8;
+  --ring: #e8692a;
+  --radius: 1.25rem;
+  --font-body: "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-heading: "Fredoka", "Nunito", ui-rounded, sans-serif;
+  --heading-weight: 600;
+  --heading-tracking: 0;
+  --card-shadow: 0 6px 0 #f1d3b8;
+  --page-bg:
+    radial-gradient(circle at 12% 8%, #ffd9b8 0, transparent 28%),
+    radial-gradient(circle at 92% 18%, #ffe9cf 0, transparent 30%),
+    radial-gradient(#f6d2b2 1.4px, transparent 1.6px) 0 0 / 26px 26px, #fff6ec;
+}
+
+/* ---------------------------------------------------------------------------
+ * cozy: knitwear, oat and terracotta, candlelight.
+ * ------------------------------------------------------------------------ */
+[data-theme="cozy"] {
+  --background: #f5ede3;
+  --foreground: #3d2c22;
+  --card: #fffaf3;
+  --card-foreground: #3d2c22;
+  --popover: #fffaf3;
+  --popover-foreground: #3d2c22;
+  --primary: #a24d31;
+  --primary-foreground: #fff8f0;
+  --secondary: #eadccb;
+  --secondary-foreground: #4a3428;
+  --muted: #efe3d4;
+  --muted-foreground: #7b6656;
+  --accent: #6b7f5a;
+  --accent-foreground: #fffaf3;
+  --success: #6b7f5a;
+  --success-foreground: #fffaf3;
+  --border: #e3d2bf;
+  --input: #d9c4ad;
+  --ring: #a24d31;
+  --radius: 0.85rem;
+  --font-body: "Lora", Georgia, serif;
+  --font-heading: "Fraunces", Georgia, serif;
+  --card-shadow: 0 1px 0 #fff inset, 0 12px 28px rgba(90, 55, 30, 0.12);
+  --page-bg:
+    radial-gradient(900px 500px at 50% -10%, rgba(255, 196, 120, 0.35), transparent 70%),
+    repeating-linear-gradient(45deg, rgba(120, 80, 50, 0.035) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(-45deg, rgba(120, 80, 50, 0.035) 0 6px, transparent 6px 12px), #f5ede3;
+}
+
+/* ---------------------------------------------------------------------------
+ * minimal: black, white, one blue accent.
+ * ------------------------------------------------------------------------ */
+[data-theme="minimal"] {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #0a0a0a;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #18181b;
+  --muted: #f4f4f5;
+  --muted-foreground: #6b6b73;
+  --accent: #2f5bff;
+  --accent-foreground: #ffffff;
+  --success: #2f5bff;
+  --success-foreground: #ffffff;
+  --border: #e4e4e7;
+  --input: #d4d4d8;
+  --ring: #2f5bff;
+  --radius: 0.25rem;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --heading-tracking: -0.035em;
+  --card-shadow: none;
+  --page-bg: #ffffff;
+}
+
+/* ---------------------------------------------------------------------------
+ * celestial: midnight blue, starlight gold, lavender.
+ * ------------------------------------------------------------------------ */
+[data-theme="celestial"] {
+  color-scheme: dark;
+  --background: #0b1026;
+  --foreground: #ebe8f7;
+  --card: #131a3d;
+  --card-foreground: #ebe8f7;
+  --popover: #131a3d;
+  --popover-foreground: #ebe8f7;
+  --primary: #e9c46a;
+  --primary-foreground: #0b1026;
+  --secondary: #1f2756;
+  --secondary-foreground: #ebe8f7;
+  --muted: #1a2149;
+  --muted-foreground: #a9a8cc;
+  --accent: #a497ff;
+  --accent-foreground: #0b1026;
+  --destructive: #ff7a8a;
+  --success: #a497ff;
+  --success-foreground: #0b1026;
+  --border: #2b3470;
+  --input: #343e80;
+  --ring: #e9c46a;
+  --radius: 1rem;
+  --font-body: "Jost", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Cormorant Garamond", Georgia, serif;
+  --heading-weight: 600;
+  --card-shadow: 0 0 0 1px #2b3470, 0 18px 50px rgba(0, 0, 0, 0.45);
+  --page-bg:
+    radial-gradient(1.5px 1.5px at 20px 30px, #fff, transparent) 0 0 / 260px 240px,
+    radial-gradient(1px 1px at 90px 120px, #e9c46a, transparent) 0 0 / 260px 240px,
+    radial-gradient(1.2px 1.2px at 160px 60px, #cfd2ff, transparent) 0 0 / 260px 240px,
+    radial-gradient(1px 1px at 230px 170px, #fff, transparent) 0 0 / 260px 240px,
+    radial-gradient(1.4px 1.4px at 50px 200px, #fff, transparent) 0 0 / 260px 240px,
+    radial-gradient(1200px 700px at 80% -20%, #2a2f73 0, transparent 60%),
+    linear-gradient(180deg, #0b1026 0%, #111743 100%);
+}
+
+/* ---------------------------------------------------------------------------
+ * botanical: sage, paper, terracotta blooms.
+ * ------------------------------------------------------------------------ */
+[data-theme="botanical"] {
+  --background: #f2f4ec;
+  --foreground: #22311f;
+  --card: #fbfcf7;
+  --card-foreground: #22311f;
+  --popover: #fbfcf7;
+  --popover-foreground: #22311f;
+  --primary: #4b7547;
+  --primary-foreground: #f8fbf3;
+  --secondary: #e0e8d6;
+  --secondary-foreground: #2b3d27;
+  --muted: #e8ede0;
+  --muted-foreground: #5f6e59;
+  --accent: #c4705a;
+  --accent-foreground: #fff9f5;
+  --success: #4b7547;
+  --success-foreground: #f8fbf3;
+  --border: #d2dcc6;
+  --input: #c3cfb5;
+  --ring: #4b7547;
+  --radius: 0.9rem;
+  --font-body: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "DM Serif Display", Georgia, serif;
+  --heading-weight: 400;
+  --card-shadow: 0 1px 2px rgba(34, 49, 31, 0.06), 0 10px 24px rgba(34, 49, 31, 0.07);
+  --page-bg:
+    radial-gradient(700px 400px at 0% 0%, rgba(160, 190, 140, 0.35), transparent 70%),
+    radial-gradient(600px 380px at 100% 10%, rgba(220, 160, 140, 0.22), transparent 70%), #f2f4ec;
+}
+
+/* ---------------------------------------------------------------------------
+ * retro: green-phosphor terminal with scanlines.
+ * ------------------------------------------------------------------------ */
+[data-theme="retro"] {
+  color-scheme: dark;
+  --background: #040904;
+  --foreground: #6dff8a;
+  --card: #071207;
+  --card-foreground: #6dff8a;
+  --popover: #071207;
+  --popover-foreground: #6dff8a;
+  --primary: #4af626;
+  --primary-foreground: #031003;
+  --secondary: #0d240f;
+  --secondary-foreground: #8dffa4;
+  --muted: #0a1b0b;
+  --muted-foreground: #3fb85a;
+  --accent: #ffb000;
+  --accent-foreground: #120a00;
+  --destructive: #ff5f56;
+  --success: #ffb000;
+  --success-foreground: #120a00;
+  --border: #1e5a27;
+  --input: #2a7a35;
+  --ring: #ffb000;
+  --radius: 0;
+  --font-body: "IBM Plex Mono", ui-monospace, monospace;
+  --font-heading: "VT323", "IBM Plex Mono", monospace;
+  --heading-weight: 400;
+  --heading-tracking: 0.02em;
+  --heading-transform: uppercase;
+  --text-glow: 0 0 6px rgba(74, 246, 38, 0.55);
+  --card-shadow: 0 0 0 1px #1e5a27, 0 0 24px rgba(74, 246, 38, 0.08);
+  --page-bg:
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.28) 0 1px, transparent 1px 3px),
+    radial-gradient(1000px 700px at 50% 30%, #0b1f0c 0, #040904 75%);
+}

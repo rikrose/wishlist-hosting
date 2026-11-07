@@ -1,0 +1,37 @@
+{
+  // Cloudflare Worker configuration.
+  // `pnpm run configure cloudflare` fills in `name` and `database_id` for you.
+  // See README.md → "Deploying" for the manual steps.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "wishlist",
+  "compatibility_date": "2026-10-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "@tanstack/react-start/server-entry",
+  "observability": { "enabled": true },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wishlist",
+      // Replace with the id printed by `wrangler d1 create wishlist`.
+      // Local development works with this placeholder.
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations",
+    },
+  ],
+  // Per-account limit on claims (see src/server/rate-limit.ts). Always on,
+  // alongside Turnstile (if turned on). `period` must
+  // be 10 or 60 seconds. `namespace_id` is any positive integer, unique within
+  // your Cloudflare account.
+  "ratelimits": [
+    {
+      "name": "CLAIM_LIMITER",
+      "namespace_id": "4101",
+      "simple": { "limit": 10, "period": 60 },
+    },
+  ],
+  // Secrets are NOT stored here. Set them with `pnpm run configure`
+  // (or `wrangler secret put <NAME>`). For local dev, copy .dev.vars.example
+  // to .dev.vars. Required: LEDGER_KEY and at least one login provider
+  // (GITHUB_CLIENT_ID/SECRET or GOOGLE_CLIENT_ID/SECRET). TURNSTILE_SECRET_KEY
+  // only if Turnstile is on in wishlist.config.json.
+}
